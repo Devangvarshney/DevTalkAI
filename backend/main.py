@@ -8,7 +8,7 @@ app = FastAPI(title="AI English Speaking Coach API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"], # In production, restrict this
-    allow_credentials=True,
+    allow_credentials=False, # Must be False if allow_origins is ["*"] to prevent browser CORS blocks
     allow_methods=["*"],
     allow_headers=["*"],
 )
