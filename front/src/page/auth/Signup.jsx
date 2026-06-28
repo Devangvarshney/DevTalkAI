@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { API_BASE_URL } from "../../config";
 
 export default function Signup() {
   const [name, setName] = useState("");
@@ -17,7 +18,7 @@ export default function Signup() {
     setError("");
     setLoading(true);
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/v1/auth/register", {
+      const res = await fetch(`${API_BASE_URL}/api/v1/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

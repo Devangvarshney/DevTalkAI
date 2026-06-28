@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { Mic, Square, Send } from "lucide-react"
+import { API_BASE_URL } from "../../config"
 
 export default function Chat({ isWidget = false, onClose }) {
   const [sessionId, setSessionId] = useState("")
@@ -23,7 +24,7 @@ export default function Chat({ isWidget = false, onClose }) {
     const startChat = async () => {
       try {
         const token = localStorage.getItem("authToken")
-        const res = await fetch("http://127.0.0.1:8000/api/v1/start", {
+        const res = await fetch(`${API_BASE_URL}/api/v1/start`, {
           headers: {
             "Authorization": `Bearer ${token}`
           }
@@ -64,7 +65,7 @@ export default function Chat({ isWidget = false, onClose }) {
 
     try {
       const token = localStorage.getItem("authToken")
-      const res = await fetch("http://127.0.0.1:8000/api/v1/chat", {
+      const res = await fetch(`${API_BASE_URL}/api/v1/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -136,7 +137,7 @@ export default function Chat({ isWidget = false, onClose }) {
 
     try {
       const token = localStorage.getItem("authToken")
-      const res = await fetch("http://127.0.0.1:8000/api/v1/upload-chat", {
+      const res = await fetch(`${API_BASE_URL}/api/v1/upload-chat`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`

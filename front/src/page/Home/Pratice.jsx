@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import { Mic, ChevronLeft, ChevronRight, Square } from "lucide-react"
 import SpotlightCard from "../../components/SpotlightCard"
+import { API_BASE_URL } from "../../config"
 
 const RING_R = 24
 const CIRC = 2 * Math.PI * RING_R
@@ -182,7 +183,7 @@ export default function Practice() {
     formData.append("file", blob, "recording.webm")
     try {
       const token = localStorage.getItem("authToken")
-      const res = await fetch("http://127.0.0.1:8000/api/v1/upload", { 
+      const res = await fetch(`${API_BASE_URL}/api/v1/upload`, { 
         method: "POST", 
         headers: {
           "Authorization": `Bearer ${token}`
@@ -197,7 +198,7 @@ export default function Practice() {
       const audioUrl = data.mp3_url;
       const fullAudioUrl = audioUrl && (audioUrl.startsWith("http://") || audioUrl.startsWith("https://"))
         ? audioUrl
-        : audioUrl ? `http://127.0.0.1:8000/${audioUrl}` : "";
+        : audioUrl ? `${API_BASE_URL}/${audioUrl}` : "";
       setAudioURL(fullAudioUrl)
     } catch(err) {
       console.error(err)

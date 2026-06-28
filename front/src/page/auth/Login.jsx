@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { API_BASE_URL } from "../../config";
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -11,7 +12,7 @@ export default function Login() {
     setError('');
     setLoading(true);
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/v1/auth/login', {
+      const res = await fetch(`${API_BASE_URL}/api/v1/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
