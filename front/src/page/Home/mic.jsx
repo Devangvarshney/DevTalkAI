@@ -29,12 +29,39 @@ const BACKEND_QUESTIONS = [
   "Describe the life cycle of an HTTP request from the moment the user clicks a button to when the backend responds.",
   "What are microservices, and how do services securely and reliably communicate with each other?",
   "How do you implement secure authentication and authorization using OAuth 2.0 and JSON Web Tokens (JWT)?",
-  "Explain event-driven architecture. When and how would you use message brokers like Kafka or RabbitMQ?",
   "How do you design a database schema for a high-traffic e-commerce cart and checkout system?",
-  "What is connection pooling, and why is it critical for backend database performance?",
   "How do you implement rate limiting on your API to protect against service denial and abuse?",
-  "Explain the CAP theorem and how it influences your choice of database in distributed systems."
-]
+  "Explain the CAP theorem and how it influences your choice of database in distributed systems.",
+
+  // Security
+  "What is encryption and decryption? Explain symmetric and asymmetric encryption with real-world examples.",
+  "Which algorithms are commonly used for encryption and decryption? Explain AES, RSA, ECC, and ChaCha20.",
+  "What hashing algorithms are commonly used for password storage? Explain bcrypt, Argon2, PBKDF2, and why SHA-256 alone is not enough.",
+  "What is the difference between hashing, encryption, and encoding?",
+
+  // JWT
+  "How does JWT work internally? Explain the Header, Payload, and Signature.",
+  "Which algorithms are used to sign JWT tokens? Explain HS256, RS256, ES256, and when to use each.",
+  "How do you securely store and validate JWT tokens in a web application?",
+  "What is the difference between access tokens and refresh tokens?",
+
+  // Networking
+  "What is DNS? Explain the complete DNS resolution process from entering a URL to receiving an IP address.",
+  "What is a load balancer? Why is it needed in scalable applications?",
+  "Explain different load balancing algorithms such as Round Robin, Least Connections, IP Hash, and Weighted Round Robin.",
+  "What is the difference between Layer 4 and Layer 7 load balancers?",
+  "What happens when you type a URL into the browser? Explain the complete request lifecycle including DNS, TCP, TLS, HTTP, backend processing, and response.",
+
+  // HTTPS & TLS
+  "What is SSL/TLS? How does the HTTPS handshake work?",
+  "How does public key cryptography establish a secure HTTPS connection?",
+  "What is the difference between HTTP and HTTPS?",
+
+  // System Design
+  "How would you design a backend that handles 10 million requests per day?",
+  "How would you improve the performance of a REST API under heavy traffic?",
+  "How do CDNs, caching, and load balancers work together in a production system?"
+];
 
 export default function Practice() {
   const [recording, setRecording] = useState(false)
