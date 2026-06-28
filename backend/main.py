@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api import endpoints
+from app.api import endpoints, auth
 from app.core.config import settings
-
+from fastapi.staticfiles import StaticFiles
 app = FastAPI(title="AI English Speaking Coach API")
 
 app.add_middleware(
@@ -14,7 +14,9 @@ app.add_middleware(
 )
 
 app.include_router(endpoints.router, prefix="/api/v1")
+app.include_router(auth.router, prefix="/api/v1/auth")
 
 @app.get("/")
 def root():
     return {"message": "AI English Speaking Coach API Provider"}
+app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
